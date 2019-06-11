@@ -2,8 +2,10 @@
 #include <array>
 #include <random>
 #include <ctime>
+#include <utility>
 
 using std::array;
+using std::pair;
 
 class Block
 {
@@ -21,12 +23,15 @@ public:
 	
 	array<array<int, 4>, 4> matrix;
 
+	pair<int, int> posOfNextBlock;
+
 	Block(enum tag t);
 
 	~Block(void);
 
 private:
 	static const array<array<array<int, 4>, 4>, 28> data;
+	static const array<array<int, 2>, 28> posOfNextBlockData;
 	static std::default_random_engine e;
 	static std::uniform_int_distribution<unsigned> u;
 };
