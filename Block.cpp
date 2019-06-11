@@ -8,6 +8,8 @@ Block::Block(enum tag t = Block::BLOCK_NONE) : tag(t)
 	if (t == Block::BLOCK_NONE)
 		tag = static_cast<enum tag>(u(e));
 
+	posOfNextBlock = std::make_pair(posOfNextBlockData[static_cast<int>(tag)-1][0], posOfNextBlockData[static_cast<int>(tag)-1][1]);
+
 	switch (tag)
 	{
 	case Block::BLOCK_I1: matrix = data[0]; break;
@@ -46,6 +48,37 @@ Block::Block(enum tag t = Block::BLOCK_NONE) : tag(t)
 Block::~Block(void)
 {
 }
+
+const array<array<int, 2>, 28> Block::posOfNextBlockData = {
+	739, 195, // I1
+	722, 180, // I2
+	739, 195, // I3
+	722, 180, // I4
+	720, 180, // J1
+	710, 200, // J2
+	720, 210, // J3
+	740, 195, // J4
+	725, 180, // L1
+	710, 195, // L2
+	720, 210, // L3
+	740, 200, // L4
+	722, 162, // O1
+	722, 162, // O2
+	722, 162, // O3
+	722, 162, // O4
+	740, 162, // S1
+	722, 175, // S2
+	740, 162, // S3
+	722, 175, // S4
+	739, 165, // T1
+	730, 180, // T2
+	740, 160, // T3
+	750, 180, // T4
+	739, 162, // Z1
+	723, 177, // Z2
+	739, 162, // Z3
+	723, 177, // Z4
+};
 
 const array<array<array<int, 4>, 4>, 28> Block::data = {
 	// I1
