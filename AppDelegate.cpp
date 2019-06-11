@@ -51,7 +51,7 @@ void Win32SetKeyLayer(Tetris *layer)
 
 void Win32KeyHook( UINT message,WPARAM wParam, LPARAM lParam )  
 {  
-    CCLog("Win32KeyHook message %d wParam %d lParam %d", message, wParam, lParam);  
+    //CCLog("Win32KeyHook message %d wParam %d lParam %d", message, wParam, lParam);  
     if (g_layer)  
         g_layer->onWin32KeyEvent(message, wParam, lParam);  
 }  
@@ -112,7 +112,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     CCFileUtils::sharedFileUtils()->setSearchPaths(searchPath);
 	
     // turn on display FPS
-    pDirector->setDisplayStats(true);
+	pDirector->setDisplayStats(false);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
