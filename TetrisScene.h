@@ -9,6 +9,7 @@
 
 using std::array;
 using std::pair;
+using std::string;
 
 class Tetris : public cocos2d::CCLayer
 {
@@ -50,6 +51,12 @@ private:
 	Block curBlock;
 	Block nextBlock;
 	void nextTurn(void);
+	cocos2d::CCSprite * setSprite(enum Block::tag t);
+	void drawScoreText(string s);
+	void drawText(string s, int x, int y);
+	int score;
+	char strBuf[32];
+	bool gameOver;
 };
 
 #endif // __Tetris_SCENE_H__
